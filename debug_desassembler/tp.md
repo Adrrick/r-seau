@@ -41,4 +41,6 @@ Donc j'ai remplacé cette ligne par un NOP, donc pas de jump, donc Winrar croit 
 
 Ca donne un bel écran "About" dans lequel il y a écrit que ma version de Winrar est activée, mais ma licence est inexistante (vu que j'en ai pas, c'est logique) donc ça fait un gros vide.  
 
-Du coup plus de "Achète mon produit steuplait", juste le logiciel. Youpi !
+Du coup plus de "Achète mon produit steuplait", juste le logiciel. Youpi !  
+
+![](https://i.imgur.com/jXsX0SO.png)
