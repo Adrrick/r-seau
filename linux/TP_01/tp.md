@@ -340,9 +340,8 @@ Last login: Thu Sep 24 09:18:45 2020
 ```
 
 * Pare-feu
-```
+
 Tout était déjà bloqué de base sauf ssh, donc je n'ai rien modifié.  
-```
 
 
 ## I. Setup serveur web
