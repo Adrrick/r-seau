@@ -247,8 +247,8 @@ Last login: Thu Sep 24 09:31:20 2020 from 192.168.1.1
 ```
 
 * Pare-feu
-```
-```
+
+Tout était déjà bloqué de base sauf ssh, donc je n'ai rien modifié.  
 
 -VM 2 :  
 
@@ -341,6 +341,7 @@ Last login: Thu Sep 24 09:18:45 2020
 
 * Pare-feu
 ```
+Tout était déjà bloqué de base sauf ssh, donc je n'ai rien modifié.  
 ```
 
 
