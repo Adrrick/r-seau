@@ -604,7 +604,7 @@ J'ai suivi le script d'installation, et voici le résultat :
 ![](https://i.imgur.com/AVjbtHg.png)
 
 
-J'ai ensuite suivi la procédure de netdata pour recevoir les notifs Discord. Voici le contenu de ma conf Discord :  
+J'ai ensuite suivi la procédure de netdata pour recevoir les notifs Discord. Voici le contenu de ma conf Discord après avoir modifié `health_alarm_notify.conf` :  
 
 ```
 #------------------------------------------------------------------------------
@@ -629,7 +629,7 @@ DEFAULT_RECIPIENT_DISCORD="alarms"
 #------------------------------------------------------------------------------
 ```
 
-Puis j'ai créé une alerte examplealerte.conf dans health.d de netdata avec ce contenu :  
+Puis j'ai créé une alerte `examplealerte.conf` dans `health.d` de netdata avec ce contenu :  
 
 ```
  alarm: ram_usage
