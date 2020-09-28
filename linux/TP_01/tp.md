@@ -599,7 +599,7 @@ Je peux vérifier en faisant un curl https://192.168.1.11 depuis node2.
 
 ## III. Monitoring, alerting
 
-J'ai suivi le script d'installation, et voici le résultat :  
+J'ai suivi le script d'installation, ouvert le port 19999 et voici le résultat :  
 
 ![](https://i.imgur.com/AVjbtHg.png)
 
