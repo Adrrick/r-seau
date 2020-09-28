@@ -482,13 +482,22 @@ Tout d'abord, voici le script, qui se situe dans ~ de backup :
 
 ```
 #!/bin/bash
+# 27/09/2020
+# Tristan
+# script backup site
 
+d_path="$1"
 oldest=""
 nb_backups=$(ls /home/backups/ | wc -l)
-
 now=$(date "+%Y%m%d_%H%M")
+backup_uid=1003
 
-if [ "$1" = "" ]; then
+if [[ ${EUID} -ne "$backup_uid" ]]; then
+        echo "Erreur : seul backup peut lancer ce script."
+        exit 1
+fi
+
+if [[ "$d_path" = "" ]]; then
         for file in /srv/*
         do
                 tar -zcvf ${file}_${now}.tar.gz ${file}
@@ -497,19 +506,19 @@ if [ "$1" = "" ]; then
         nb_backups=$(($nb_backups + 2))
 fi
 
-if [ "$1" = "/srv/site1" ]; then
+if [[ "$d_path" = "/srv/site1" ]]; then
         tar -zcvf site1_${now}.tar.gz /srv/site1
         mv site1_${now}.tar.gz /home/backups/
         nb_backups=$(($nb_backups + 1))
 fi
 
-if [ "$1" = "/srv/site2" ]; then
+if [[ "$d_path" = "/srv/site2" ]]; then
         tar -zcvf site2_${now}.tar.gz /srv/site2
         mv site2_${now}.tar.gz /home/backups/
         nb_backups=$(($nb_backups + 1))
 fi
 
-while [ "$nb_backups" -gt '7' ]; do
+while [[ "$nb_backups" -gt '7' ]]; do
 
         oldest=$(ls -tr /home/backups/ | head -1)
         rm /home/backups/$oldest
