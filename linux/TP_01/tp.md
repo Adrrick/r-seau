@@ -599,4 +599,49 @@ Je peux vérifier en faisant un curl https://192.168.1.11 depuis node2.
 
 ## III. Monitoring, alerting
 
-Impossible de faire cette partie, la commande pour installer Netdata me donne une unknown error.
+J'ai suivi le script d'installation, et voici le résultat :  
+
+![](https://i.imgur.com/AVjbtHg.png)
+
+
+J'ai ensuite suivi la procédure de netdata pour recevoir les notifs Discord. Voici le contenu de ma conf Discord :  
+
+```
+#------------------------------------------------------------------------------
+# discord (discordapp.com) global notification options
+
+# multiple recipients can be given like this:
+#                  "CHANNEL1 CHANNEL2 ..."
+
+# enable/disable sending discord notifications
+SEND_DISCORD="YES"
+
+# Create a webhook by following the official documentation -
+# https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks
+DISCORD_WEBHOOK_URL="https://discordapp.com/api/webhooks/760056519902756894/jVH4hbF_JK1kxR-Mj1NNQIl_0jz8iZMecPPrZFaVEFaSZjKJu39T8o2lqggQrEFFbpuG"
+
+# if a role's recipients are not configured, a notification will be send to
+# this discord channel (empty = do not send a notification for unconfigured
+# roles):
+DEFAULT_RECIPIENT_DISCORD="alarms"
+
+
+#------------------------------------------------------------------------------
+```
+
+Puis j'ai créé une alerte examplealerte.conf dans health.d de netdata avec ce contenu :  
+
+```
+ alarm: ram_usage
+ on: system.ram
+lookup: average -1m percentage of used
+ units: %
+ every: 1m
+ warn: $this > 10
+ crit: $this > 20
+ info: The percentage of RAM used by the system.
+```
+
+Et voilà mon bro qui me prévient :  
+
+![](https://i.imgur.com/CIzc9jk.png)
