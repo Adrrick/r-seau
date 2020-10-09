@@ -1,0 +1,16 @@
+[Unit]
+Description=Backup automatique script sauvegarde
+
+[Service]
+Environment=PATH1=/srv/site1
+Environment=PATH2=/srv/site2
+Type=oneshot
+ExecStartPre=/opt/backup_test.sh ${PATH1}
+ExecStartPre=/opt/backup_test.sh ${PATH2}
+ExecStart=/opt/backup_save.sh ${PATH1}
+ExecStart=/opt/backup_save.sh ${PATH2}
+ExecStartPost=/opt/backup_delete.sh
+User=backup
+
+[Install]
+WantedBy=multi-user.target

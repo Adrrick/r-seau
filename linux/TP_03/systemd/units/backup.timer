@@ -1,0 +1,9 @@
+[Unit]
+Description=Run backup every hour
+
+[Timer]
+OnUnitActiveSec=59min
+
+
+[Install]
+WantedBy=timers.target
